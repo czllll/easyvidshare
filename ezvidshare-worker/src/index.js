@@ -1,4 +1,3 @@
-
 async function handleOptions(request) {
     let headers = {
         'Access-Control-Allow-Origin': '*',
@@ -18,19 +17,22 @@ function addCorsHeaders(response) {
     })
 }
 
-/**
- * Welcome to Cloudflare Workers! This is your first worker.
- *
- * - Run `npm run dev` in your terminal to start a development server
- * - Open a browser tab at http://localhost:8787/ to see your worker in action
- * - Run `npm run deploy` to publish your worker
- *
- * Learn more at https://developers.cloudflare.com/workers/
- */
-
 addEventListener('fetch', event => {
 	event.respondWith(handleRequest(event.request))
 })
+
+async function handleRequest(request) {
+	if (request.method === 'OPTIONS') {
+		return handleOptions(request)
+	}
+
+	const url = new URL(request.url)
+
+	if (url.pathname.startsWith('/upload')) {
+		return await handleUpload(request)
+	}
+	return new Response('Not Found', { status: 404 })
+}
 
 async function handleUpload(request) {
 	const contentType = request.headers.get('content-type') || ''
@@ -53,33 +55,5 @@ async function handleUpload(request) {
 }
 
 
-async function handleRequest(request) {
-    if (request.method === 'OPTIONS') {
-        return handleOptions(request)
-    }
-    
-	const url = new URL(request.url)
 
-	if (url.pathname.startsWith('/upload')) {
-		return await handleUpload(request)
-	} else if (url.pathname.startsWith('/share')) {
-		return await handleShare(request)
-	}
-	return new Response('Not Found', { status: 404 })
-}
 
-async function handleShare(request) {
-	const url = new URL(request.url)
-	const objectName = url.searchParams.get('file')
-
-	if (!objectName) {
-		return new Response('Bad Request', { status: 400 })
-	}
-
-	const expiration = Math.floor(Date.now() / 1000) + 3600  // 1 hour expiration
-	const signedUrl = await VIDEO_BUCKET.getSignedUrl(objectName, {
-		expires: expiration,
-	})
-
-	return addCorsHeaders(new Response(signedUrl, { status: 200 }))
-}
