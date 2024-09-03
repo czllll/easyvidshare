@@ -1,24 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>EZVID-share</title>
-	<link rel="stylesheet" href="page.css">
+	<title>EZVIDshare</title>
+	<link rel="stylesheet" href="page11.css">
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="icon" href="./favicon/favicon.ico" type="image/x-icon">
+
+	<!-- PNG format icons -->
+	<link rel="icon" sizes="16x16" href="./favicon/favicon-16x16.png" type="image/png">
+	<link rel="icon" sizes="32x32" href="./favicon/favicon-32x32.png" type="image/png">
+	<link rel="icon" sizes="96x96" href="./favicon/favicon-96x96.png" type="image/png">
+
+	<!-- Apple Touch Icon (for iOS devices) -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+
 </head>
 <body>
-<h1>EZVID-share</h1>
-<form id="uploadForm" enctype="multipart/form-data">
-	<input type="file" name="file" id="fileInput" />
-	<button type="submit">Upload</button>
-</form>
-<div id="fileSize"></div>
-<div id="uploadSpeed"></div>
-<div id="status"></div>
+	<header>
+		<div class="logo">
+			<img src="logo.png" alt="Logo">
+		</div>
+	</header>
+	<h1>Share your game highlights with your friends.</h1>
 
-<div id="progressBar">
-	<div id="progress"></div>
-</div>
+	<form id="uploadForm" enctype="multipart/form-data">
+		<div class="file-upload" id="fileUpload">
+			<input type="file" name="file" id="fileInput" class="file-input" accept="video/*"/>
+			<div class="file-drop-area" id="fileDropArea">
+				<p id="fileDropAreaTitle">Drag Or Select your files here and click Upload</p>
+			</div>
+		</div>
+		<div id="progressBar" class="progress">
+			<div id="progress"></div>
+		</div>
+		<div class="submitBtn">
+			<button type="submit" disabled id="uploadBtn">Upload</button>
+			<button type="button" onclick="refreshInput()" style="cursor: pointer">Refresh</button>
+		</div>
+	</form>
 
-<script src="page.js">
-</script>
+	<div class="container">
+		<div class="row1">
+			<input class="urlOutput" id="url" onclick="copyUrl(this)" readonly disabled>
+			<button id="generateQR" style="margin-left: 10px; display: none; border-radius: 20px">generate QRcode</button>
+		</div>
+		<div class="row2" id="txtPaste">
+			Click to paste
+		</div>
+	</div>
+
+	<div id="myModal" class="modal">
+		<div class="modal-content">
+			<span class="close" onclick="closeModal()">&times;</span>
+			<div id="qrcode"></div>
+		</div>
+	</div>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+	<script src="page12.js"></script>
+
 </body>
 </html>

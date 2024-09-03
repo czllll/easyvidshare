@@ -1,0 +1,168 @@
+#progressBar {
+	background-color: #cecece;
+	/*margin: 20px 200px 20px*/
+	margin: 40px 200px 40px;
+	text-align: center;
+	border-radius: 30px;
+
+
+}
+#progress {
+	height: 20px;
+	border-radius: 30px;
+
+	width: 0;
+	background-color: #4caf50;
+}
+
+header {
+	padding: 5px 5px;
+	background-color: #F8F7F4 ;
+}
+body {
+	background-color: #F8F7F4;
+}
+.logo img {
+	max-width: 120px;
+	height: auto;
+}
+
+h1 {
+	text-align: center;
+	font-size: 30px;
+	font-family: "Ubuntu";
+	margin-top: 0px;
+}
+
+
+.file-upload {
+	width: 600px;
+	max-width: 100%;
+	margin:auto;
+}
+
+/* Style the hidden file input */
+.file-input {
+
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+
+/* Style the drop area */
+.file-drop-area {
+	border: 2px dashed #ccc;
+	text-align: center;
+	background-color: #fff;
+	border-radius: 30px;
+	transition: border-color 0.3s ease;
+	padding: 120px 0px 120px 0px;
+	cursor: pointer;
+	margin-top: 55px;
+
+}
+
+.file-drop-area.dragover {
+	border-color: #333;
+}
+
+.file-drop-area p {
+	color: #999;
+	font-size: 20px;
+	font-family: Ubuntu;
+
+}
+
+.submitBtn {
+	margin: 30px 200px 20px;
+	text-align: center;
+
+}
+.submitBtn Button{
+	width: 100px;
+	height: 50px;
+	border-radius: 30px;
+	font-size: 16px;
+	font-family: Ubuntu;
+}
+
+
+.urlOutput{
+	width: 220px;
+	height: 20px;
+	font-size: 16px;
+	border-radius: 30px;
+	background-color: #F8F7F4;
+	text-align: center;
+}
+.upLoadForm {
+	margin :auto;
+}
+
+.container {
+	display: flex;
+	/*text-align: center;*/
+	/*margin: 0px 200px 0px;*/
+	/*justify-content: center;*/
+	/*align-items: center;*/
+	flex-direction: column;
+	align-items: flex-start;
+
+
+}
+
+.row1 {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+.row2 {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	/*transform: translateX(-60px);*/
+	opacity: 0.5;
+}
+
+/*.modal {*/
+/*	position: fixed;*/
+/*	top: 50%;*/
+/*	left: 50%;*/
+/*	transform: translate(-50%, -50%);*/
+/*}*/
+
+.modal {
+	display: none;
+	position: fixed;
+	top: 25%;
+	left: 40%;
+	width: 250px;
+	height: 250px;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1000;
+	justify-content: center;
+	align-items: center;
+	overflow: auto;
+	border-radius: 8px;
+
+}
+
+/* 模态框内容的样式 */
+.modal-content {
+	/*background-color: white;*/
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+	position: relative;
+	text-align: center;
+}
+
+/* 关闭按钮的样式 */
+.close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 18px;
+	font-weight: bold;
+	cursor: pointer;
+}
