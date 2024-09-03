@@ -1,4 +1,4 @@
-Easy to share game gighlight with your friend!
+Easy to share game highlight with your friend!
 - step0: open [ezvidshare](https://ezvidshare.dirtsai.tech)
 - step1: upload a video
 - step2: get a url or a QR-code
